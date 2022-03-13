@@ -1,0 +1,7 @@
+.cell-edit-mode {
+  min-width: 100%;
+  min-height: 10rem;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+}
