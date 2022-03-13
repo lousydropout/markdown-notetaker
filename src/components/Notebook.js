@@ -7,32 +7,21 @@ const Notebook = () => {
   const [notebook, setNotebook] = useState({ data: [] });
   useEffect(() => setNotebook(notebookData), []);
 
-  const updateData = (idx, content) => {
-    const data = notebook.data;
-
-    const newData = { ...data[idx], content };
-    setNotebook({
-      ...notebook,
-      data: [
-        ...data.slice(0, idx),
-        newData,
-        ...data.slice(idx + 1, data.length),
-      ],
-    });
+  const updateContent = (idx) => {
+    const f = (idx, content) => {
+      const data = [...notebook.data]; // make copy of notebook.data
+      data[idx].content = content; // update data[idx].content
+      setNotebook({ ...notebook, data }); // update notebook.data
+    };
+    return (content) => f(idx, content);
   };
 
-  // console.log("notebook.data: ", notebook.data);
+  console.log("notebook.data: ", notebook.data);
 
   return (
     <ul className="cell-list">
       {notebook.data.map((cell, idx) => {
-        return (
-          <Cell
-            key={cell.id}
-            {...cell}
-            updateData={(content) => updateData(idx, content)}
-          />
-        );
+        return <Cell key={cell.id} {...cell} updateData={updateContent(idx)} />;
       })}
     </ul>
   );
