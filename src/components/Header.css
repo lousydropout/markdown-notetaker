@@ -1,13 +1,21 @@
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+hr {
+  margin-bottom: 5rem;
 }
 
 #title {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin: 2rem;
+  margin-bottom: 4rem;
+  text-decoration: underline;
+  font-style: italic;
 }
 
 .nav-links a {
