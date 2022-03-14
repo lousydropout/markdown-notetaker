@@ -7,14 +7,12 @@
   font-size: 1rem;
   padding: 1rem;
   border: solid 1px black;
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 0 0 1rem 0;
 }
 
-.cell-edit-mode {
+.cell-edit-mode textarea {
   height: 100%;
-  background-color: #eee;
-  border-radius: 0;
 }
 
 /* .cell-presentation-mode {
@@ -27,7 +25,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  justify-content: flex-end;
   padding-bottom: 3px;
 }
 
@@ -71,19 +68,4 @@
 .reactMarkdown h6 {
   text-align: center;
   margin-bottom: 0.5rem;
-}
-
-.edit-mode-toggle-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-}
-
-.edit-mode-toggle-btn,
-.edit-mode-toggle-btn:hover,
-.edit-mode-toggle-btn:active {
-  color: inherit;
 }

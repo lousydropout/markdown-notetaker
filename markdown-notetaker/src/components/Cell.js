@@ -18,63 +18,46 @@ const Cell = ({ id, content, updateData, content_type: contentType }) => {
 
   const reactMarkdownId = `react-markdown-${id}`;
   const cellEditId = `cell-edit-${id}`;
-  const cellEditBtnId = `cell-edit-btn-${id}`;
 
-  useEffect(() => setReady(true), [content]);
+  console.log("ready: ", ready);
+  console.log("editMode: ", editMode);
+
+  useEffect(() => {
+    setReady(true);
+  }, [content]);
 
   useEffect(() => {
     if (ready) {
-      document
-        .getElementById(cellEditBtnId)
-        .addEventListener("click", callback);
+      document.getElementById(cellEditId).addEventListener("click", callback);
     }
     return () => {
       document
-        .getElementById(cellEditBtnId)
+        .getElementById(cellEditId)
         .removeEventListener("click", callback);
     };
-  }, [ready, cellEditBtnId]);
+  }, [ready, cellEditId]);
 
   return (
     <>
       {ready || <div>Loading</div>}
       {ready && (
         <div className="cell-bar">
-          {/* <span> Mode: {editMode ? "Edit" : "Presentation"}</span> */}
-          <button className="toggle-edit-mode-btn" id={cellEditBtnId}>
-            {editMode || (
-              <>
-                <a className="edit-mode-toggle-btn" href={`#${cellEditId}`}>
-                  <FontAwesomeIcon
-                    icon={faArrowsRotate}
-                    className="toggleIcon"
-                  />
-                  <span className="toggleBtnText">
-                    {editMode ? "Edit" : "Presentation"} mode
-                  </span>
-                </a>
-              </>
-            )}
-            {editMode && (
-              <>
-                <FontAwesomeIcon icon={faArrowsRotate} className="toggleIcon" />
-                <span className="toggleBtnText">
-                  {editMode ? "Edit" : "Presentation"} mode
-                </span>
-              </>
-            )}
+          <span> Mode: {editMode ? "Edit" : "Presentation"}</span>
+          <button className="toggle-edit-mode-btn" id={cellEditId}>
+            <FontAwesomeIcon icon={faArrowsRotate} className="toggleIcon" />
+            <span className="toggleBtnText">Toggle mode</span>
           </button>
         </div>
       )}
       {ready && editMode && (
-        <textarea
-          className="cell-edit-mode"
-          value={content}
-          onChange={handleText}
-          id={cellEditId}
-          autoFocus={true}
-          onFocus={(e) => (e.target.selectionStart = e.target.value.length)}
-        />
+        <div id={cellEditId}>
+          <textarea
+            className="cell-edit-mode"
+            value={content}
+            onChange={handleText}
+            id={cellEditId}
+          />
+        </div>
       )}
 
       {ready &&
