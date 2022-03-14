@@ -1,0 +1,17 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+#title {
+  font-size: 2rem;
+}
+
+.nav-links a {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
