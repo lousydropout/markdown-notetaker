@@ -33,7 +33,7 @@ const Cell = ({ id, content, updateData, addCell, deleteCell }) => {
           className="toggle-edit-mode-btn"
           id={cellEditBtnId}
           onClick={toggleEditMode}
-          style={{ display: editMode ? "block" : "none" }}
+          // style={{ display: editMode ? "block" : "none" }}
         >
           <a className="edit-mode-toggle-btn" href={`#${cellEditId}`}>
             <FontAwesomeIcon icon={faArrowsRotate} className="toggleIcon" />

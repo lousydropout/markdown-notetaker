@@ -1,6 +1,6 @@
 import "./Header.css";
 
-const Header = ({ title, updateTitle = () => {} }) => {
+const Header = ({ title, updateTitle, handleSave, handleSwitchFile }) => {
   const handleTitle = (event) => {
     updateTitle(event.target.value);
   };
@@ -9,8 +9,8 @@ const Header = ({ title, updateTitle = () => {} }) => {
       <nav>
         <input id="title" value={title} onChange={handleTitle} />
         <span className="save-reset-buttons">
-          <button>Switch file</button>
-          <button>Save</button>
+          <button onClick={handleSwitchFile}>Switch file</button>
+          <button onClick={handleSave}>Save</button>
         </span>
       </nav>
     </>

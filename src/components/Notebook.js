@@ -1,12 +1,7 @@
 import Cell from "./Cell";
 import "./Notebook.css";
+import { emptyCell } from "../assets/emptyCell";
 import { v4 as uuid } from "uuid";
-
-const emptyCell = {
-  id: "",
-  content_type: "markdown",
-  content: "",
-};
 
 const Notebook = ({ notebook, setNotebook }) => {
   const updateContent = (idx) => {
