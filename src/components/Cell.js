@@ -8,20 +8,9 @@ import remarkGfm from "remark-gfm";
 import "./Cell.css";
 
 const Cell = ({ id, content, updateData, addCell, deleteCell }) => {
-  const handleText = (e) => updateData(e.target.value);
+  // hooks
   const [editMode, setEditMode] = useState(false);
   const cellRef = useRef();
-
-  const reactMarkdownId = `react-markdown-${id}`;
-  const cellEditId = `cell-edit-${id}`;
-
-  const toggleEditMode = () => {
-    setEditMode((editMode) => !editMode);
-    setTimeout(function () {
-      document.getElementById(cellEditId).focus();
-    }, 0);
-  };
-
   useEffect(() => {
     document.body.addEventListener("click", (event) => {
       if (cellRef.current?.contains(event.target)) return;
@@ -29,9 +18,23 @@ const Cell = ({ id, content, updateData, addCell, deleteCell }) => {
     });
   }, []);
 
+  // css id parameters
+  const reactMarkdownId = `react-markdown-${id}`;
+  const cellEditId = `cell-edit-${id}`;
+
+  // functions
+  const handleText = (e) => updateData(e.target.value);
+  const toggleEditMode = () => {
+    setEditMode((editMode) => !editMode);
+    setTimeout(function () {
+      document.getElementById(cellEditId).focus();
+    }, 0);
+  };
+
   return (
-    <div className="cell" ref={cellRef}>
+    <div className="cell">
       <textarea
+        ref={cellRef}
         style={{ display: editMode ? "block" : "none" }}
         className="cell-edit-mode"
         value={content}
@@ -48,7 +51,7 @@ const Cell = ({ id, content, updateData, addCell, deleteCell }) => {
       >
         <ReactMarkdown
           children={content}
-          className="markdown cell-presentation-mode"
+          className="markdown cell-render-mode"
           remarkPlugins={[remarkGfm]}
           components={{
             code({ node, inline, className, children, ...props }) {
