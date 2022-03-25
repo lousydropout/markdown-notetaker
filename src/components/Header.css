@@ -19,8 +19,8 @@ hr {
   line-height: 1rem;
 }
 
-.nav-links a {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+.save-reset-buttons button {
+  font-size: 1.3rem;
+  padding: 0.2rem 1rem;
+  margin-left: 0.5rem;
 }
