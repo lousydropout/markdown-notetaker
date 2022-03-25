@@ -14,7 +14,6 @@ const Cell = ({ id, content, updateData, addCell, deleteCell }) => {
 
   const reactMarkdownId = `react-markdown-${id}`;
   const cellEditId = `cell-edit-${id}`;
-  const cellEditBtnId = `cell-edit-btn-${id}`;
 
   const toggleEditMode = () => {
     setEditMode((editMode) => !editMode);
