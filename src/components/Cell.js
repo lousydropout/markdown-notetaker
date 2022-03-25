@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReactMarkdown from "react-markdown";
@@ -7,25 +7,21 @@ import remarkGfm from "remark-gfm";
 
 import "./Cell.css";
 
-const Cell = ({ id, content, updateData, content_type: contentType }) => {
+const Cell = ({ id, content, updateData }) => {
   const handleText = (e) => updateData(e.target.value);
   const [editMode, setEditMode] = useState(false);
-  const [ready, setReady] = useState(false);
-
-  const toggleEditMode = () => {
-    console.log("toggling");
-    setEditMode((editMode) => !editMode);
-  };
 
   const reactMarkdownId = `react-markdown-${id}`;
   const cellEditId = `cell-edit-${id}`;
   const cellEditBtnId = `cell-edit-btn-${id}`;
 
-  useEffect(() => setReady(true), [content]);
+  const toggleEditMode = () => {
+    setEditMode((editMode) => !editMode);
+    setTimeout(function () {
+      document.getElementById(cellEditId).focus();
+    }, 0);
+  };
 
-  if (!ready) {
-    return <div>Loading</div>;
-  }
   return (
     <>
       <div className="cell-bar">
@@ -48,7 +44,7 @@ const Cell = ({ id, content, updateData, content_type: contentType }) => {
         value={content}
         onChange={handleText}
         id={cellEditId}
-        autoFocus={true}
+        autoFocus
         onFocus={(e) => (e.target.selectionStart = e.target.value.length)}
       />
       <div
