@@ -101,7 +101,7 @@
 
 .cell-bottom-bar {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   color: #94badc;
   align-items: center;
 }
@@ -111,6 +111,18 @@
   margin-right: 0.5rem;
 }
 
-.add-cell-button {
+.add-cell-button,
+.delete-cell-button {
   cursor: pointer;
+}
+
+.cell {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.toggle-edit-mode-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
 }

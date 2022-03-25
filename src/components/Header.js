@@ -9,7 +9,7 @@ const Header = ({ title, updateTitle = () => {} }) => {
       <nav>
         <input id="title" value={title} onChange={handleTitle} />
         <span className="save-reset-buttons">
-          {/* <button>Reset</button> */}
+          <button>Switch file</button>
           <button>Save</button>
         </span>
       </nav>

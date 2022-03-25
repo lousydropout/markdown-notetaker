@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { notebookData } from "../assets/notebook";
 import Cell from "./Cell";
-import Header from "./Header";
 import "./Notebook.css";
 import { v4 as uuid } from "uuid";
 
@@ -11,10 +8,7 @@ const emptyCell = {
   content: "",
 };
 
-const Notebook = () => {
-  const [notebook, setNotebook] = useState({ title: "New document", data: [] });
-  useEffect(() => setNotebook(notebookData), []);
-
+const Notebook = ({ notebook, setNotebook }) => {
   const updateContent = (idx) => {
     const f = (idx, content) => {
       const data = [...notebook.data]; // make copy of notebook.data
@@ -36,8 +30,13 @@ const Notebook = () => {
     return f;
   };
 
-  const updateTitle = (title) => {
-    setNotebook({ ...notebook, title });
+  const deleteCell = (idx) => {
+    const f = () => {
+      const data = [...notebook.data];
+      data.splice(idx, 1);
+      setNotebook({ ...notebook, data });
+    };
+    return f;
   };
 
   const notebookCells = notebook.data.map((cell, idx) => {
@@ -47,18 +46,12 @@ const Notebook = () => {
         {...cell}
         updateData={updateContent(idx)}
         addCell={addCell(idx)}
+        deleteCell={deleteCell(idx)}
       />
     );
   });
 
-  useEffect(() => {}, [notebook]);
-
-  return (
-    <>
-      <Header title={notebook.title} updateTitle={updateTitle} />
-      <ul className="cell-list">{notebookCells}</ul>
-    </>
-  );
+  return <div className="cell-list">{notebookCells}</div>;
 };
 
 export default Notebook;
