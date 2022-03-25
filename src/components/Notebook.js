@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { notebookData } from "../assets/notebook";
 import Cell from "./Cell";
+import Header from "./Header";
 import "./Notebook.css";
 
 const Notebook = () => {
-  const [notebook, setNotebook] = useState({ data: [] });
+  const [notebook, setNotebook] = useState({ title: "New document", data: [] });
   useEffect(() => setNotebook(notebookData), []);
 
   const updateContent = (idx) => {
@@ -16,14 +17,21 @@ const Notebook = () => {
     return (content) => f(idx, content);
   };
 
-  console.log("notebook.data: ", notebook.data);
+  const updateTitle = (title) => {
+    setNotebook({ ...notebook, title });
+  };
 
   return (
-    <ul className="cell-list">
-      {notebook.data.map((cell, idx) => {
-        return <Cell key={cell.id} {...cell} updateData={updateContent(idx)} />;
-      })}
-    </ul>
+    <>
+      <Header title={notebook.title} updateTitle={updateTitle} />
+      <ul className="cell-list">
+        {notebook.data.map((cell, idx) => {
+          return (
+            <Cell key={cell.id} {...cell} updateData={updateContent(idx)} />
+          );
+        })}
+      </ul>
+    </>
   );
 };
 

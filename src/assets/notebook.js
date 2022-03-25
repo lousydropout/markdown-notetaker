@@ -1,5 +1,5 @@
 export const notebookData = {
-  filename: "notebook.json",
+  title: "Markdown notebook example",
   data: [
     {
       id: "1",

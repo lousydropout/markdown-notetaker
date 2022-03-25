@@ -1,13 +1,15 @@
 import "./Header.css";
-const Header = () => {
+
+const Header = ({ title, updateTitle = () => {} }) => {
+  const handleTitle = (event) => {
+    updateTitle(event.target.value);
+  };
   return (
     <>
       <nav>
-        <span id="title" contentEditable="true">
-          Markdown Notetaker
-        </span>
+        <input id="title" value={title} onChange={handleTitle} />
         <span className="save-reset-buttons">
-          <button>Reset</button>
+          {/* <button>Reset</button> */}
           <button>Save</button>
         </span>
       </nav>
