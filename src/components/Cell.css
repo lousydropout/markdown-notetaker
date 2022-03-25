@@ -1,3 +1,8 @@
+.cell {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
 .cell-edit-mode,
 .cell-render-mode {
   width: 100%;
@@ -14,89 +19,9 @@
 }
 
 .cell-edit-mode {
-  height: auto;
-  background-color: #f3f3f3;
-  border-color: #aaa;
-  border-radius: 0;
-}
-
-.cell-edit-mode:focus {
-  height: auto;
   background-color: #f7f7f7;
   border-color: #444;
   border-radius: 0;
-}
-
-.cell-bar {
-  text-align: left;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  justify-content: flex-end;
-  padding-bottom: 3px;
-  border-color: #eee;
-}
-
-.toggle-edit-mode-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: solid 1px #333;
-  border-radius: 5px;
-  color: #94badc;
-  background-color: #fff;
-  border-color: #94badc;
-  padding: 0.2rem;
-  cursor: pointer;
-}
-
-.toggleIcon {
-  font-size: 1rem;
-  padding: 0.2rem;
-}
-
-.toggleBtnText {
-  margin: 0 0.5rem;
-  font-size: 1rem;
-  color: #94badc;
-}
-
-.reactMarkdown {
-  text-align: left;
-  /* margin: 1rem 0; */
-}
-
-.reactMarkdown p {
-  line-height: 1.5rem;
-  margin: 1rem 0;
-  color: #333;
-}
-
-.reactMarkdown h1,
-.reactMarkdown h2,
-.reactMarkdown h3,
-.reactMarkdown h4,
-.reactMarkdown h5,
-.reactMarkdown h6 {
-  text-align: center;
-  margin-bottom: 0.5rem;
-  color: #444;
-}
-
-.edit-mode-toggle-btn {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-}
-
-.edit-mode-toggle-btn,
-.edit-mode-toggle-btn:hover,
-.edit-mode-toggle-btn:active {
-  color: inherit;
 }
 
 .cell-bottom-bar {
@@ -106,7 +31,7 @@
   align-items: center;
 }
 
-.add-cell {
+.add-delete-cell {
   color: #94badc;
   margin-right: 0.5rem;
 }
@@ -114,15 +39,4 @@
 .add-cell-button,
 .delete-cell-button {
   cursor: pointer;
-}
-
-.cell {
-  position: relative;
-  margin-bottom: 1rem;
-}
-
-.toggle-edit-mode-btn {
-  position: absolute;
-  right: 0;
-  top: 0;
 }

@@ -6,6 +6,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import remarkGfm from "remark-gfm";
 
 import "./Cell.css";
+import "./ReactMarkdown.css";
 
 const Cell = ({ id, content, updateData, addCell, deleteCell }) => {
   // hooks
@@ -74,11 +75,11 @@ const Cell = ({ id, content, updateData, addCell, deleteCell }) => {
       </div>
       <div className="cell-bottom-bar">
         <span className="delete-cell-button" onClick={deleteCell}>
-          <FontAwesomeIcon icon={faMinus} className="add-cell" />
+          <FontAwesomeIcon icon={faMinus} className="add-delete-cell" />
           Delete cell above
         </span>
         <span className="add-cell-button" onClick={addCell}>
-          <FontAwesomeIcon icon={faAdd} className="add-cell" />
+          <FontAwesomeIcon icon={faAdd} className="add-delete-cell" />
           Add cell below
         </span>
       </div>

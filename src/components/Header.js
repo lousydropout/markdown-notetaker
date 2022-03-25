@@ -5,15 +5,13 @@ const Header = ({ title, updateTitle, handleSave, handleSwitchFile }) => {
     updateTitle(event.target.value);
   };
   return (
-    <>
-      <nav>
-        <input id="title" value={title} onChange={handleTitle} />
-        <span className="save-reset-buttons">
-          <button onClick={handleSwitchFile}>Switch file</button>
-          <button onClick={handleSave}>Save</button>
-        </span>
-      </nav>
-    </>
+    <nav>
+      <input id="title" value={title} onChange={handleTitle} />
+      <span className="save-reset-buttons">
+        <button onClick={handleSwitchFile}>Switch file</button>
+        <button onClick={handleSave}>Save</button>
+      </span>
+    </nav>
   );
 };
 

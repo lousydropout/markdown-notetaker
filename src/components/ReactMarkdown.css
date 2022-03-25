@@ -1,0 +1,20 @@
+.reactMarkdown {
+  text-align: left;
+}
+
+.reactMarkdown p {
+  line-height: 1.5rem;
+  margin: 1rem 0;
+  color: #333;
+}
+
+.reactMarkdown h1,
+.reactMarkdown h2,
+.reactMarkdown h3,
+.reactMarkdown h4,
+.reactMarkdown h5,
+.reactMarkdown h6 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
