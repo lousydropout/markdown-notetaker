@@ -98,3 +98,19 @@
 .edit-mode-toggle-btn:active {
   color: inherit;
 }
+
+.cell-bottom-bar {
+  display: flex;
+  justify-content: center;
+  color: #94badc;
+  align-items: center;
+}
+
+.add-cell {
+  color: #94badc;
+  margin-right: 0.5rem;
+}
+
+.add-cell-button {
+  cursor: pointer;
+}

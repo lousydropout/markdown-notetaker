@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
+import { faArrowsRotate, faAdd } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -7,7 +7,7 @@ import remarkGfm from "remark-gfm";
 
 import "./Cell.css";
 
-const Cell = ({ id, content, updateData }) => {
+const Cell = ({ id, content, updateData, addCell }) => {
   const handleText = (e) => updateData(e.target.value);
   const [editMode, setEditMode] = useState(false);
 
@@ -75,6 +75,12 @@ const Cell = ({ id, content, updateData }) => {
             },
           }}
         />
+      </div>
+      <div className="cell-bottom-bar">
+        <span className="add-cell-button" onClick={addCell}>
+          <FontAwesomeIcon icon={faAdd} className="add-cell" />
+          Add cell below
+        </span>
       </div>
     </>
   );
